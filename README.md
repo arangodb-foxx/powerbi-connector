@@ -4,7 +4,7 @@ This is a simple powerbi-connector allowing pagination of documents.
 
 **IMPORTANT**
 
-This is a demo application. Do not use this application without further authentication on a public accessible server!
+This is a demo application and will only work with enabled authentication (Basic Authentication).
 
 **IMPORTANT**
 

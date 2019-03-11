@@ -11,6 +11,12 @@ const router = createRouter();
 module.context.use(router);
 
 router.get('/documents', function (req, res) {
+  // will only work with authentication
+  // use basic auth
+  if (!req.arangoUser) {
+    res.throw('unauthorized');
+  }
+
   // query params available here: req.queryParams);
   let result = {};
 
