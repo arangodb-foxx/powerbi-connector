@@ -24,7 +24,7 @@ Optional query url parameters:
 
 URL query parameter example:
 ```
-  http://<address>:<port>/_db/<database>/<foxx-mount-path>/documents?collection=<your-collection>&start=0&count=5
+  http://<username>:<password>@<address>:<port>/_db/<database>/<foxx-mount-path>/documents?collection=<your-collection>&start=0&count=5
 ```
 
 # Limitations
