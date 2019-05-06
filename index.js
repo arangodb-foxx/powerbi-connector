@@ -54,7 +54,6 @@ router
     const { page, per_page } = req.queryParams;
     const start = (page - 1) * per_page;
 
-    // returns a subset of all documents using limit
     const { query, bindVars } = aql`
       FOR doc IN ${collection}
       LIMIT ${start}, ${per_page}
