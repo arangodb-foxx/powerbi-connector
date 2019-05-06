@@ -1,47 +1,47 @@
-# powerbi-connector
+# PowerBI Web connector for ArangoDB
 
-This is a simple powerbi-connector allowing pagination of documents. 
+This is an example PowerBI connector for ArangoDB.
 
-**IMPORTANT**
+## Installation
 
-This is a demo application and will only work with enabled authentication (Basic Authentication).
+The PowerBI connector can be installed as a Foxx service using the
+[ArangoDB web interface](https://docs.arangodb.com/latest/Manual/Programs/WebInterface/Services.html)
+or the [Foxx CLI](https://github.com/arangodb/foxx-cli):
 
-**IMPORTANT**
+```sh
+$ npm install --global foxx-cli
+$ foxx install -u root -P -H http://localhost:8529 -D _system /powerbi \
+https://github.com/arangodb-foxx/powerbi-connector/archive/master.zip
 
-## Routes
+# or without installing foxx-cli:
 
-### /documents - Paginate documents inside a given collection (GET)
-
-This route allows to get documents of a collection in a paginated way using url query
-parameters.
-
-Required query url parameter:
-- `collection` (Collection to be used)
-
-Optional query url parameters:
-- `start` (Starting point of data to fetch)
-- `count` (Amount of documents we want to fetch)
-
-URL query parameter example:
-```
-  http://<username>:<password>@<address>:<port>/_db/<database>/<foxx-mount-path>/documents?collection=<your-collection>&start=0&count=5
+$ npx foxx-cli install -u root -P -H http://localhost:8529 -D _system /powerbi \
+https://github.com/arangodb-foxx/powerbi-connector/archive/master.zip
 ```
 
-# Limitations
+## Configuration
 
-This application is an ArangoDB Foxx service. Foxx is based on Googles V8 JavaScript engine.
-Due to that fact, it is also bound to Googles V8 Limitations. Keep in mind that all generated
-data, needs to fit into your memory. To tweak some of the V8's parameters, ArangoDB offers a few
-startup parameters to tweak V8 for your personal needs.
+Before you can use the ArangoDB connector in PowerBI you need to configure the
+service using the web interface or the Foxx CLI.
 
-```
-  --javascript.v8-contexts <uint64>           maximum number of V8 contexts that are created for executing JavaScript actions (default: 0)
-  --javascript.v8-contexts-minimum <uint64>   minimum number of V8 contexts that keep available for executing JavaScript actions (default: 0)
-  --javascript.v8-max-heap <uint64>           maximal heap size (in MB) (default: 3072)
-```
+To configure the service in the ArangoDB web interface, open the service details
+and then navigate to the _Settings_ tab in the top bar.
 
-# License
+- **collections**: list of names of collections that will be exposed to PowerBI,
+  as a comma-separated list, e.g. `payments,timeouts` will expose the collections
+  `payments` and `timeouts` in the database the service was installed.
 
-Copyright (c) 2019 ArangoDB GmbH, Cologne, Germany
+- **username** and **password**: credentials that will be used by PowerBI to
+  authenticate against this service.
 
-License: Apache 2
+  **Note**: These credentials will only be used by PowerBI and should **not**
+  match the ArangoDB user credentials used to access ArangoDB itself.
+
+## Adding the data source
+
+To add the connector as a data source in PowerBI,
+
+## License
+
+This code is licensed under the
+[Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).

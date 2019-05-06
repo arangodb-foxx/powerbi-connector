@@ -1,16 +1,32 @@
 {
+  "$schema": "http://json.schemastore.org/foxx-manifest",
   "name": "powerbi-connector",
-  "version": "1.0.1",
-  "description": "This is a simple Power BI connector allowing pagination of documents",
+  "description": "Example PowerBI Web connector for ArangoDB.",
+  "version": "1.0.0",
+  "thumbnail": "powerbi.png",
   "engines": {
     "arangodb": "^3.0.0"
   },
-  "author": "Heiko Kernbach",
-  "license": "Apache 2",
-  "main": "main.js",
-  "scripts": {
-    "setup": "scripts/setup.js",
-    "teardown": "scripts/teardown.js"
-  },
-  "tests": "test/**/*.js"
+  "author": "ArangoDB GmbH",
+  "contributors": [
+    "Heiko Kernbach <heiko@arangodb.com>",
+    "Alan Plum <me@pluma.io>"
+  ],
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "configuration": {
+    "collections": {
+      "type": "string",
+      "description": "Names of collections that will be exposed, comma-separated."
+    },
+    "username": {
+      "type": "string",
+      "description": "Username incoming requests should use to authenticate."
+    },
+    "password": {
+      "type": "string",
+      "required": false,
+      "description": "Password incoming requests should use to authenticate."
+    }
+  }
 }
