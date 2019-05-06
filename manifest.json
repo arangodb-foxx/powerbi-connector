@@ -1,7 +1,7 @@
 {
   "$schema": "http://json.schemastore.org/foxx-manifest",
   "name": "powerbi-connector",
-  "description": "Example PowerBI Web connector for ArangoDB.",
+  "description": "Example Power BI Web connector for ArangoDB.",
   "version": "1.0.0",
   "thumbnail": "powerbi.png",
   "engines": {
