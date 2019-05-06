@@ -1,4 +1,5 @@
+.foxxignore
+.gitignore
 node_modules
-PowerBIProject
 package.json
 yarn.lock
